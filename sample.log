@@ -1,0 +1,16 @@
+# demo redo log
+T1 1 SET site.name demo
+T1 2 SET site.title hello world
+T1 3 COMMIT - -
+T2 1 SET cache.size 1024
+T3 1 SET tmp.debug on
+T3 2 COMMIT - -
+T2 2 SET cache.ttl 60
+T2 3 COMMIT - -
+T4 1 DEL site.name
+T4 2 COMMIT - -
+T5 1 SET orphan.key should-not-apply
+T6 1 SET jump.a 1
+T6 3 SET jump.b 2
+T6 4 COMMIT - -
+# CHECKSUM count=15 crc32=cb3192ba lines=ab59c4ff,69b4648f,3e05380b,f56084a7,f91c5abd,974b8b60,8fab0c65,59c34f52,8901a17c,1c996cec,ea66a6a5,c618608f,fe8eada3,84af86ed,e435c7e8
