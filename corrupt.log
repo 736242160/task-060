@@ -1,0 +1,12 @@
+T1 1 SET db.host 127.0.0.1
+T1 2 SET db.port 9999
+T1 3 COMMIT - -
+T2 1 SET cache.enabled true
+T2 2 SET cache.ttl 300
+T3 1 SET feature.beta on
+T2 3 DEL cache.ttl
+T2 4 COMMIT - -
+T4 1 SET demo.a 1
+T4 3 SET demo.b 2
+T4 4 COMMIT - -
+## CHECKSUM sha256 11 d710119c74fd8d59 25caa83edffb9c40 44078aa140ad78ab 1ac8126e4541c87a 24bf5b3f9789df58 9f6805bee2a6a6e8 99d92bf33f769182 da2eeca8e0498f5e 99f36af0701e80a2 2449f723af2ec757 46065fbb5709d72f
